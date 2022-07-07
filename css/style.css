@@ -2,8 +2,21 @@
     --light-grey: rgb(231, 229, 229);
 }
 
-body{
-    background-color: darkgrey;
+.first-part-bg{
+    background-color: #009688;
+    height: 30vh;
+}
+
+.second-part-bg{
+    background-color: var(--light-grey);
+    height: 70vh;
+}
+
+.main-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .ms_logo{
@@ -47,7 +60,7 @@ body{
 }
 
 .sentMessage{
-    background-color: green;
+    background-color: rgb(77, 184, 77);
     align-self: flex-end;
     margin-right: 20px;
 }

@@ -13,7 +13,17 @@
 <body>
 
     <div id="app">
-        <div class="container bg-white my-5">
+
+            <!-- Background  -->
+
+        <div class="first-part-bg">
+        </div>
+        <div class="second-part-bg">
+        </div>
+
+            <!-- Start main container -->
+
+        <div class="container bg-white  main-container">
             <div class="row reset_padding">
 
                 <!-- RIGHT COL -->
@@ -62,7 +72,7 @@
                <div class="col-7 reset_padding d-flex flex-column justify-content-between">
                 <div class="head-col-right p-2 d-flex justify-content-between">
                    <div class="d-flex align-items-center">
-                        <img :src="./img/avatar_1.jpg" alt="logo utente" class="ms_logo">
+                        <img :src="imageChat(currentChat)" alt="logo utente" class="ms_logo">
                         <div class="chat-info px-2 position-relative w-100">
                             <span class="d-block"> {{ contacts[currentChat].name }} </span>
                             <span class="text-muted ms_small_text"> Ultimo messaggio inviato alle 12:00</span>
