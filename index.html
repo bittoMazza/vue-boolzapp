@@ -24,11 +24,11 @@
             <!-- Start main container -->
 
         <div class="container bg-white  main-container">
-            <div class="row reset_padding">
+            <div class="row px-0">
 
                 <!-- RIGHT COL -->
 
-               <div class="col-5 reset_padding">
+               <div class="col-5 px-0">
                 <div class="head-col-left p-2 d-flex justify-content-between">
                     <div class="d-flex align-items-center">
                         <img src="./img/avatar_2.jpg" alt="logo utente" class="ms_logo">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="notify bg-primary d-flex align-items-center py-1">
-                    <i class="bi bi-bell-slash text-primary fs-4 mx-1 p-3 bg-white rounded-circle "></i>
+                    <i class="bi bi-bell-slash text-primary fs-4 mx-1 p-3 bg-white rounded-circle"></i>
                     <div>
                         <h6> Ricevi notifiche di nuovi messaggi </h6>
                         <span class="text-muted text-decoration-underline "> Attiva notifiche desktop </span>
@@ -54,7 +54,7 @@
                     <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="" aria-describedby="basic-addon1">
                 </div>
                 <div class="chat-list">
-                    <ul>
+                    <ul class="px-0">
                         <li v-for="(chat,index) in contacts" class="d-flex" :class="{'active-chat' : index == currentChat}" @click="changeChat(index)">
                             <img :src="imageChat(index)" class="ms_logo" alt="">
                             <div class="chat-info px-2 position-relative w-100">
@@ -69,7 +69,7 @@
                
                <!-- LEFT COL -->
 
-               <div class="col-7 reset_padding d-flex flex-column justify-content-between">
+               <div class="col-7 px-0 d-flex flex-column justify-content-between">
                 <div class="head-col-right p-2 d-flex justify-content-between">
                    <div class="d-flex align-items-center">
                         <img :src="imageChat(currentChat)" alt="logo utente" class="ms_logo">
@@ -85,15 +85,16 @@
                    </div>
                 </div>
                 <div class="chat-zone">
-                    <ul class="d-flex flex-column">
-                        <li v-for="singleMessage in contacts[currentChat].messages" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
+                    <ul class="d-flex flex-column px-0">
+                        <li v-for="singleMessage in contacts[currentChat].messages" class="position-relative d-inline-block" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
                             {{  singleMessage.message  }}
+                            <span class="time-message ms_small_text">15:30</span>
                         </li>
                     </ul>
                 </div>
                 <div class="footer-col-right d-flex justify-content-between align-items-center py-2 px-3">
                     <i class="bi bi-emoji-smile px-3 fs-4 text-muted"></i>
-                    <input type="text" class="w-100 p-3 rounded border-0" placeholder="Scrivi un messaggio">
+                    <input type="text" class="w-100 p-3 rounded border-0" v-model="newMessage" @keyup.enter="sendNewMessage(newMessage)" placeholder="Scrivi un messaggio">
                     <i class="bi bi-mic-fill px-3 fs-4 text-muted"></i>
                 </div>
                </div>

@@ -5,6 +5,7 @@ const app = new Vue(
         el:'#app',
         data: {
             currentChat : 0,
+            newMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -177,6 +178,18 @@ const app = new Vue(
            },
            changeChat(i){
             this.currentChat = i;
+           },
+           sendNewMessage(textMessage){
+            if(!textMessage == '' ){
+                var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+                let objectMessage = {date: today, message: textMessage, status: 'sent'}
+                this.contacts[this.currentChat].messages.push(objectMessage)
+                this.newMessage = '';
+            }
+            else{
+                alert('Inserire del testo nel messaggio')
+            }
+           
            }
         }
 
