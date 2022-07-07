@@ -55,7 +55,7 @@
                 </div>
                 <div class="chat-list">
                     <ul>
-                        <li v-for="(chat,index) in contacts" class="d-flex" @click="changeChat(index)">
+                        <li v-for="(chat,index) in contacts" class="d-flex" :class="{'active-chat' : index == currentChat}" @click="changeChat(index)">
                             <img :src="imageChat(index)" class="ms_logo" alt="">
                             <div class="chat-info px-2 position-relative w-100">
                                 <span class="position-absolute top-0 end-0 text-muted ms_small_text">12:00</span>

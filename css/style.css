@@ -1,5 +1,5 @@
 :root{
-    --light-grey: rgb(231, 229, 229);
+    --light-grey: rgb(211, 210, 210);
 }
 
 .first-part-bg{
@@ -17,6 +17,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.active-chat{
+    background-color: rgb(233, 233, 233);
 }
 
 .ms_logo{
@@ -75,5 +79,5 @@
 }
 
 .col-5{
-    border-right: 1px solid var(--light-grey)
+    border-right: 1px solid var(--light-grey);
 }
