@@ -190,7 +190,8 @@ const app = new Vue(
                 alert('Inserire del testo nel messaggio')
             }
            
-           }
+           },
+          
         }
 
     }

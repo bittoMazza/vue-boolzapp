@@ -86,9 +86,9 @@
                 </div>
                 <div class="chat-zone">
                     <ul class="d-flex flex-column px-0">
-                        <li v-for="singleMessage in contacts[currentChat].messages" class="position-relative d-inline-block" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
+                        <li v-for="(singleMessage,index) in contacts[currentChat].messages" class="position-relative d-inline-block" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
                             {{  singleMessage.message  }}
-                            <span class="time-message ms_small_text">15:30</span>
+                            <span class="time-message ms_small_text"> 15:30 </span>
                         </li>
                     </ul>
                 </div>
