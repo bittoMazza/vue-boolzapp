@@ -1,3 +1,8 @@
+:root{
+    --light-grey: rgb(231, 229, 229);
+}
+
+
 body{
     background-color: darkgrey;
 }
@@ -14,16 +19,30 @@ body{
     padding-right: 0;
 }
 
+.head-col-right,.head-col-left,.footer-col-right{
+    height: 70px;
+}
+
 li{
     list-style: none;
     padding: 8px 10px;
-    border-top: 0.5px solid rgb(231, 229, 229);
+    border-top: 0.5px solid var(--light-grey)
 }
 
 .ms_small_text{
     font-size: 13px;
 }
 
+.chat-zone{
+    height: calc(100% - 140px);
+    background-image: url("../img/mine.jpg");
+    background-size: contain;
+}
+
+.footer-col-right{
+    background-color:rgb(253, 246, 234) ;
+}
+
 .col-5{
-    border-right: 1px solid rgb(231, 229, 229);
+    border-right: 1px solid var(--light-grey)
 }
