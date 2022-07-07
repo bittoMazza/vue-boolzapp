@@ -4,6 +4,7 @@ const app = new Vue(
     {
         el:'#app',
         data: {
+            currentChat : 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -172,9 +173,10 @@ const app = new Vue(
            imageChat(indice){
               let fileName;
               fileName= './img/avatar'+this.contacts[indice].avatar+'.jpg'
-              console.log(fileName)
               return fileName;  
-              
+           },
+           changeChat(i){
+            this.currentChat = i;
            }
         }
 

@@ -2,7 +2,6 @@
     --light-grey: rgb(231, 229, 229);
 }
 
-
 body{
     background-color: darkgrey;
 }
@@ -12,8 +11,7 @@ body{
     border-radius: 50%;
 }
 
-
-
+/* Per Reset padding */
 .col-5 .reset_padding,.col-7 .reset_padding,.row .reset_padding,ul{
     padding-left: 0;
     padding-right: 0;
@@ -23,10 +21,19 @@ body{
     height: 70px;
 }
 
-li{
+.chat-list ul li{
     list-style: none;
     padding: 8px 10px;
     border-top: 0.5px solid var(--light-grey)
+}
+
+.chat-zone ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 10px ;
+    width: 250px;
+    margin: 20px ;
+    border-radius: 10px;
 }
 
 .ms_small_text{
@@ -37,6 +44,17 @@ li{
     height: calc(100% - 140px);
     background-image: url("../img/mine.jpg");
     background-size: contain;
+}
+
+.sentMessage{
+    background-color: green;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+.arrivedMessage{
+    background-color: white;
+    align-self: flex-start;
 }
 
 .footer-col-right{
