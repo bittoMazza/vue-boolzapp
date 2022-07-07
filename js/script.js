@@ -169,7 +169,13 @@ const app = new Vue(
             ]
         },
         methods: {
-           
+           imageChat(indice){
+              let fileName;
+              fileName= './img/avatar'+this.contacts[indice].avatar+'.jpg'
+              console.log(fileName)
+              return fileName;  
+              
+           }
         }
 
     }
