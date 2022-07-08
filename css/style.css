@@ -62,7 +62,7 @@
 }
 
 .chat-zone{
-    height: calc(100% - 140px);
+    height: 700px;
     background-image: url("../img/mine.jpg");
     background-size: contain;
 }

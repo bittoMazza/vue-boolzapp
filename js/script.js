@@ -211,9 +211,21 @@ const app = new Vue(
               Ci sarà bisogno di un reset per far tornare i visible a true quando non c'è niente nella 
               barra di ricerca.
            */
-
+              startSearch(stringToSearch){
+                for(let i=0; i < this.contacts.length ;i++)
+                {
+                    if(this.contacts[i].name.toLowerCase().includes(stringToSearch.toLowerCase()))
+                    {
+                        this.contacts[i].visible = true;
+                    }
+                    else{
+                        this.contacts[i].visible = false
+                    }
+                }
+            }
           
-        }
+        },
+        
 
     }
     
