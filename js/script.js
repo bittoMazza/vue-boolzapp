@@ -5,6 +5,7 @@ const app = new Vue(
         el:'#app',
         data: {
             currentChat : 0,
+            chatNameSearch: '',
             newMessage: '',
             contacts: [
                 {
@@ -200,7 +201,17 @@ const app = new Vue(
             var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
             let objectMessage = {date: today, message: 'OK', status: 'received'}
             this.contacts[this.currentChat].messages.push(objectMessage)
-           }
+           },
+
+           /* 
+              Creo una funzione che prende la stringa scritta dall'utente e controlla se è presente 
+              all'interno dei name dei singoli oggetti,siccome i visbile sono già tutti true, se la stringa non
+              c'è settiamo il visible = false. 
+              Bisogna fare un ternario in cui se visible è false allora si applica un d-none
+              Ci sarà bisogno di un reset per far tornare i visible a true quando non c'è niente nella 
+              barra di ricerca.
+           */
+
           
         }
 
