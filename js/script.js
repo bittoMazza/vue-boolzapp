@@ -6,6 +6,7 @@ const app = new Vue(
         data: {
             currentChat : 0,
             chatNameSearch: '',
+            typeStatus : 'sent',
             newMessage: '',
             contacts: [
                 {
@@ -182,9 +183,8 @@ const app = new Vue(
            },
            sendNewMessage(textMessage){
             if(!textMessage == '' ){
-                var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
-                let objectMessage = {date: today, message: textMessage, status: 'sent'}
-                this.contacts[this.currentChat].messages.push(objectMessage)
+                this.typeStatus = 'sent'
+                this.creationMessage(textMessage,this.typeStatus)
                 this.newMessage = '';
                 setTimeout(this.automaticMessage,1000);
             }
@@ -197,11 +197,17 @@ const app = new Vue(
             let formattedDate = rawDate.getHours() + ':' + rawDate.getMinutes();
             return formattedDate;      
            },
+
            automaticMessage(){
-            var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
-            let objectMessage = {date: today, message: 'OK', status: 'received'}
-            this.contacts[this.currentChat].messages.push(objectMessage)
+            this.typeStatus = 'received'
+            this.creationMessage('OK',this.typeStatus)
            },
+           
+           creationMessage(messageString,statusString){
+            var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+            let objectMessage = {date: today, message: messageString, status:statusString}
+            this.contacts[this.currentChat].messages.push(objectMessage)
+        },
 
            /* 
               Creo una funzione che prende la stringa scritta dall'utente e controlla se è presente 
@@ -211,6 +217,8 @@ const app = new Vue(
               Ci sarà bisogno di un reset per far tornare i visible a true quando non c'è niente nella 
               barra di ricerca.
            */
+
+            // Per il reset basta premere invio con l'input vuoto
               startSearch(stringToSearch){
                 for(let i=0; i < this.contacts.length ;i++)
                 {
