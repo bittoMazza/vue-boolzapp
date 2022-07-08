@@ -50,13 +50,13 @@
                 <!-- Search-Bar -->
                 <div class="input-group  p-2">
                     <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary" type="button" @click="startSearch(chatNameSearch)"><i class="bi bi-search"></i></button>
+                      <button class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
                     </div>
                     <input type="text" v-model="chatNameSearch" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="" aria-describedby="basic-addon1">
                 </div>
                 <div class="chat-list">
                     <ul class="px-0">
-                        <li v-for="(chat,index) in contacts" class="d-flex" :class="{'active-chat' : index == currentChat}" @click="changeChat(index)">
+                        <li v-for="(chat,index) in contacts" v-show="chat.visible == true" class="ms_d_flex" :class="{'active-chat' : index == currentChat}" @click="changeChat(index)">
                             <img :src="imageChat(index)" class="ms_logo" alt="">
                             <div class="chat-info px-2 position-relative w-100">
                                 <span class="position-absolute top-0 end-0 text-muted ms_small_text">12:00</span>

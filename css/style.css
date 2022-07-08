@@ -57,6 +57,10 @@
     font-size: 13px;
 }
 
+.ms_d_flex{
+    display: flex;
+}
+
 .chat-zone{
     height: calc(100% - 140px);
     background-image: url("../img/mine.jpg");
