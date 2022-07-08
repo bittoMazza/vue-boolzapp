@@ -41,6 +41,9 @@
     padding: 8px 10px;
     border-top: 0.5px solid var(--light-grey)
 }
+.chat-list ul li:hover{
+    background-color:  rgb(247, 244, 244);
+}
 
 .chat-zone ul li{
     list-style: none;

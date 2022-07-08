@@ -185,12 +185,22 @@ const app = new Vue(
                 let objectMessage = {date: today, message: textMessage, status: 'sent'}
                 this.contacts[this.currentChat].messages.push(objectMessage)
                 this.newMessage = '';
+                setTimeout(this.automaticMessage,1000);
             }
             else{
                 alert('Inserire del testo nel messaggio')
             }
-           
            },
+           formatDate(newDate){
+            let rawDate = new Date(newDate);
+            let formattedDate = rawDate.getHours() + ':' + rawDate.getMinutes();
+            return formattedDate;      
+           },
+           automaticMessage(){
+            var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+            let objectMessage = {date: today, message: 'OK', status: 'received'}
+            this.contacts[this.currentChat].messages.push(objectMessage)
+           }
           
         }
 
