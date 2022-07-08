@@ -59,9 +59,9 @@
                         <li v-for="(chat,index) in contacts" v-show="chat.visible == true" class="ms_d_flex" :class="{'active-chat' : index == currentChat}" @click="changeChat(index)">
                             <img :src="imageChat(index)" class="ms_logo" alt="">
                             <div class="chat-info px-2 position-relative w-100">
-                                <span class="position-absolute top-0 end-0 text-muted ms_small_text">12:00</span>
+                                <span class="position-absolute top-0 end-0 text-muted ms_small_text">{{ lastMessageTime(index) }}</span>
                                 <span class="d-block"> {{ chat.name }} </span>
-                                <span class="text-muted ms_small_text"> Ultimo messaggio inviato</span>
+                                <span class="text-muted ms_small_text"> {{ lastMessage(index) }}</span>
                             </div>
                         </li>
                     </ul>
@@ -87,8 +87,16 @@
                 </div>
                 <div class="chat-zone">
                     <ul class="d-flex flex-column px-0">
-                        <li v-for="(singleMessage,index) in contacts[currentChat].messages" class="position-relative d-inline-block" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
+                        <li v-for="(singleMessage,index) in contacts[currentChat].messages" class="position-relative d-inline-block message-container" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
                             {{  singleMessage.message  }}
+                            <div class="delete-message-menu">
+                                <i class="bi bi-chevron-down dropdown-icon"></i> 
+                                <div class="ms_dropdown">
+                                      <ul>
+                                        <li> Cancella messaggio </li>
+                                      </ul>                                  
+                                </div>
+                            </div>
                             <span class="time-message ms_small_text text-muted"> {{ formatDate(singleMessage.date) }} </span>
                         </li>
                     </ul>

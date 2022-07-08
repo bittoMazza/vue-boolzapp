@@ -178,9 +178,11 @@ const app = new Vue(
               fileName= './img/avatar'+this.contacts[indice].avatar+'.jpg'
               return fileName;  
            },
+
            changeChat(i){
             this.currentChat = i;
            },
+
            sendNewMessage(textMessage){
             if(!textMessage == '' ){
                 this.typeStatus = 'sent'
@@ -192,6 +194,7 @@ const app = new Vue(
                 alert('Inserire del testo nel messaggio')
             }
            },
+
            formatDate(newDate){
             let rawDate = new Date(newDate);
             let formattedDate = rawDate.getHours() + ':' + rawDate.getMinutes();
@@ -202,7 +205,7 @@ const app = new Vue(
             this.typeStatus = 'received'
             this.creationMessage('OK',this.typeStatus)
            },
-           
+
            creationMessage(messageString,statusString){
             var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
             let objectMessage = {date: today, message: messageString, status:statusString}
@@ -219,18 +222,26 @@ const app = new Vue(
            */
 
             // Per il reset basta premere invio con l'input vuoto
-              startSearch(stringToSearch){
-                for(let i=0; i < this.contacts.length ;i++)
-                {
-                    if(this.contacts[i].name.toLowerCase().includes(stringToSearch.toLowerCase()))
-                    {
+            startSearch(stringToSearch) {
+                for (let i = 0; i < this.contacts.length; i++) {
+                    if (this.contacts[i].name.toLowerCase().includes(stringToSearch.toLowerCase())) {
                         this.contacts[i].visible = true;
                     }
-                    else{
+                    else {
                         this.contacts[i].visible = false
                     }
                 }
+            },
+
+            
+            // Chiedi come fare a mettere un argomento al posto di date e message
+            lastMessage(indice){
+               return this.contacts[indice].messages[this.contacts[indice].messages.length - 1].message
+            },
+            lastMessageTime(indice){
+                return this.contacts[indice].messages[this.contacts[indice].messages.length - 1].date
             }
+
           
         },
         

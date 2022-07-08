@@ -68,7 +68,7 @@
 }
 
 .sentMessage{
-    background-color: rgb(77, 184, 77);
+    background-color:#d5f9ba;
     align-self: flex-end;
     margin-right: 20px;
 }
@@ -89,5 +89,30 @@
 .time-message{
     position: absolute;
     bottom: 5px;
-    right: 5px;
+    right: 10px;
+}
+
+.delete-message-menu{
+    display: none;
+}
+
+.message-container:active .delete-message-menu{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.dropdown-icon:hover .ms_dropdown{
+    display: inline-block;
+}
+
+.ms_dropdown{
+    display: none;
+    background-color: white;
+}
+
+.chat-zone .ms_dropdown ul li{
+    padding: 0px;
+    margin: 0px;
 }
