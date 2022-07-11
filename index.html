@@ -79,7 +79,7 @@
                         <img :src="imageChat(currentChat)" alt="logo utente" class="ms_logo">
                         <div class="chat-info px-2 position-relative w-100">
                             <span class="d-block"> {{ contacts[currentChat].name }} </span>
-                            <span class="text-muted ms_small_text">Ultimo messaggio alle {{ lastMessageTime(currentChat) }} </span>
+                            <span class="text-muted ms_small_text">Ultimo messaggio il {{ lastMessageTime(currentChat) }} </span>
                         </div>
                    </div>
                    <div class="d-flex align-items-center">
@@ -98,7 +98,7 @@
                                     <span @click="deleteMessage(index)"> Cancella Messaggio!</span>
                                 </div>
                             </div>                                        
-                            <span class="time-message ms_small_text text-muted"> {{ formatDate(singleMessage.date) }} </span>
+                            <span class="time-message"> {{ formatDate(singleMessage.date) }} </span>
                         </li>
                     </ul>
                 </div>

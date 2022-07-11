@@ -101,7 +101,9 @@
 
 .time-message{
     position: absolute;
-    bottom: 5px;
+    color:rgb(192, 192, 192) ;
+    font-size: 11px;
+    bottom: 3px;
     right: 10px;
 }
 

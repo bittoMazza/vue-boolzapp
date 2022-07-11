@@ -187,7 +187,7 @@ const app = new Vue(
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: '10/10/2020 15:51:00',
                             message: 'OK!!',
                             status: 'received'
                         }
@@ -210,7 +210,7 @@ const app = new Vue(
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: '10/11/2020 15:51:00',
                             message: 'OK!!',
                             status: 'received'
                         }
@@ -243,9 +243,11 @@ const app = new Vue(
 
            formatDate(newDate){
             let rawDate = new Date(moment(newDate,'DD/MM/YYYY hh:mm:ss'));
+            let dayMessage = moment(rawDate).date();
+            let monthMessage = moment(rawDate).month()+1;
             let hoursMessage = moment(rawDate).hours();
             let minutesMessage = moment(rawDate).minutes();
-            return hoursMessage + ':' + minutesMessage;    
+            return `${dayMessage}/${monthMessage} alle ${hoursMessage}:${minutesMessage}`;    
            },
 
            automaticMessage(){
