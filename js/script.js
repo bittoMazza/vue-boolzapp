@@ -275,7 +275,15 @@ const app = new Vue(
                 return this.formatDate(lastMTime);
             },
             deleteMessage(indice) {
-                this.contacts[this.currentChat].messages.splice(indice, 1)
+                if(this.contacts[this.currentChat].messages.length > 1)
+                {
+                    this.contacts[this.currentChat].messages.splice(indice, 1)
+                }
+                else
+                {
+                    alert('Non cancellare l\'ultimo messaggio')
+                }
+               
             }
 
           
