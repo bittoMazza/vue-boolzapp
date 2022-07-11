@@ -242,9 +242,10 @@ const app = new Vue(
            },
 
            formatDate(newDate){
-            let rawDate = new Date(newDate);
-            let formattedDate = rawDate.getHours() + ':' + rawDate.getMinutes();
-            return formattedDate;      
+            let rawDate = new Date(moment(newDate,'DD/MM/YYYY hh:mm:ss'));
+            let hoursMessage = moment(rawDate).hours();
+            let minutesMessage = moment(rawDate).minutes();
+            return hoursMessage + ':' + minutesMessage;    
            },
 
            automaticMessage(){
@@ -281,7 +282,7 @@ const app = new Vue(
                 }
                 else
                 {
-                    alert('Non cancellare l\'ultimo messaggio')
+                    alert('Non puoi cancellare l\'ultimo messaggio')
                 }
                
             }
