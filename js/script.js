@@ -137,12 +137,12 @@ const app = new Vue(
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '28/01/2020 15:30:55',
                             message: 'Fai gli auguri a Martina che è il suo compleanno!',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '/01/2020 15:50:00',
                             message: 'Grazie per avermelo ricordato, le scrivo subito!',
                             status: 'received'
                         }
@@ -151,6 +151,52 @@ const app = new Vue(
                 {
                     name: 'Davide',
                     avatar: '_8',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:51:00',
+                            message: 'OK!!',
+                            status: 'received'
+                        }
+                    ],
+                }
+                ,
+                {
+                    name: 'Andrea',
+                    avatar: '_4',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:51:00',
+                            message: 'OK!!',
+                            status: 'received'
+                        }
+                    ],
+                }
+                 ,
+                {
+                    name: 'Luca',
+                    avatar: '_1',
                     visible: true,
                     messages: [
                         {
@@ -207,21 +253,10 @@ const app = new Vue(
            },
 
            creationMessage(messageString,statusString){
-            var today = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+            var today = new Date().toLocaleString('en-GB');
             let objectMessage = {date: today, message: messageString, status:statusString}
             this.contacts[this.currentChat].messages.push(objectMessage)
         },
-
-           /* 
-              Creo una funzione che prende la stringa scritta dall'utente e controlla se è presente 
-              all'interno dei name dei singoli oggetti,siccome i visbile sono già tutti true, se la stringa non
-              c'è settiamo il visible = false. 
-              Bisogna fare un ternario in cui se visible è false allora si applica un d-none
-              Ci sarà bisogno di un reset per far tornare i visible a true quando non c'è niente nella 
-              barra di ricerca.
-           */
-
-            // Per il reset basta premere invio con l'input vuoto
             startSearch(stringToSearch) {
                 for (let i = 0; i < this.contacts.length; i++) {
                     if (this.contacts[i].name.toLowerCase().includes(stringToSearch.toLowerCase())) {
@@ -232,15 +267,15 @@ const app = new Vue(
                     }
                 }
             },
-
-            
-            // Chiedi come fare a mettere un argomento al posto di date e message
-            lastMessage(indice){
-               return this.contacts[indice].messages[this.contacts[indice].messages.length - 1].message
+            lastMessage(indice) {
+                return this.contacts[indice].messages[this.contacts[indice].messages.length - 1].message
             },
-            lastMessageTime(indice){
+            lastMessageTime(indice) {
                 let lastMTime = this.contacts[indice].messages[this.contacts[indice].messages.length - 1].date
-                return this.formatDate(lastMTime);             
+                return this.formatDate(lastMTime);
+            },
+            deleteMessage(indice) {
+                this.contacts[this.currentChat].messages.splice(indice, 1)
             }
 
           
