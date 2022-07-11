@@ -93,7 +93,7 @@
                         <li v-for="(singleMessage,index) in contacts[currentChat].messages" class="position-relative d-inline-block message-container" :class="[singleMessage.status == 'sent' ? 'sentMessage' : 'arrivedMessage']">
                             {{  singleMessage.message  }}
                             <div class="ms_dropdown">
-                                <i class="bi bi-chevron-down"></i>
+                                <i class="bi bi-chevron-down p-1"></i>
                                 <div class="dropdown-content position-absolute top-100" :class="[singleMessage.status == 'sent' ? 'end-0' : 'start-0']">
                                     <span @click="deleteMessage(index)"> Cancella Messaggio!</span>
                                 </div>

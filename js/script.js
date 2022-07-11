@@ -142,7 +142,7 @@ const app = new Vue(
                             status: 'sent'
                         },
                         {
-                            date: '/01/2020 15:50:00',
+                            date: '28/01/2020 15:50:00',
                             message: 'Grazie per avermelo ricordato, le scrivo subito!',
                             status: 'received'
                         }
@@ -253,7 +253,7 @@ const app = new Vue(
            },
 
            creationMessage(messageString,statusString){
-            var today = new Date().toLocaleString('en-GB');
+            var today = new Date().toLocaleString('it-IT');
             let objectMessage = {date: today, message: messageString, status:statusString}
             this.contacts[this.currentChat].messages.push(objectMessage)
         },

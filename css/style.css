@@ -73,12 +73,12 @@
 }
 
 .chat-list{
-    height: 630px;
+    height: 530px;
     overflow: auto;
 }
 
 .chat-zone{
-    height: 700px;
+    height: 600px;
     background-image: url("../img/mine.jpg");
     background-size: contain;
 }
