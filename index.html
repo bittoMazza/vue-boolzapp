@@ -94,7 +94,7 @@
                             {{  singleMessage.message  }}
                             <div class="ms_dropdown">
                                 <i class="bi bi-chevron-down py-3"></i>
-                                <div class="dropdown-content position-absolute top-100" :class="[singleMessage.status == 'sent' ? 'end-0' : 'start-0']">
+                                <div class="dropdown-content " :class="[singleMessage.status == 'sent' ? 'end-0' : 'start-0']">
                                     <span @click="deleteMessage(index)"> Cancella Messaggio!</span>
                                 </div>
                             </div>                                        
