@@ -230,7 +230,7 @@ const app = new Vue(
            },
 
            sendNewMessage(textMessage){
-            if(!textMessage == '' ){
+            if(textMessage !== '' ){
                 this.typeStatus = 'sent'
                 this.creationMessage(textMessage,this.typeStatus)
                 this.newMessage = '';
@@ -278,15 +278,7 @@ const app = new Vue(
                 return this.formatDate(lastMTime);
             },
             deleteMessage(indice) {
-                if(this.contacts[this.currentChat].messages.length > 1)
-                {
-                    this.contacts[this.currentChat].messages.splice(indice, 1)
-                }
-                else
-                {
-                    alert('Non puoi cancellare l\'ultimo messaggio')
-                }
-               
+                this.contacts[this.currentChat].messages.splice(indice, 1)
             }
 
           

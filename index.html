@@ -62,9 +62,11 @@
                         <li v-for="(chat,index) in contacts" v-show="chat.visible == true" class="ms_d_flex" :class="{'active-chat' : index == currentChat}" @click="changeChat(index)">
                             <img :src="imageChat(index)" class="ms_logo" alt="">
                             <div class="chat-info px-2 position-relative w-100">
-                                <span class="position-absolute top-0 end-0 text-muted ms_small_text">{{ lastMessageTime(index) }}</span>
+                                <span v-if="contacts[index].messages.length > 0" class="position-absolute top-0 end-0 text-muted ms_small_text"> {{ lastMessageTime(index) }} </span>
+                                <span v-else=""></span>
                                 <span class="d-block"> {{ chat.name }} </span>
-                                <span class="text-muted ms_small_text"> {{ lastMessage(index) }}</span>
+                                <span v-if="contacts[index].messages.length > 0"class="text-muted ms_small_text"> {{lastMessage(index)}} </span>
+                                <span v-else=""class="text-muted ms_small_text">NON CI SONO MESSAGGI</span>
                             </div>
                         </li>
                     </ul>
@@ -79,7 +81,8 @@
                         <img :src="imageChat(currentChat)" alt="logo utente" class="ms_logo">
                         <div class="chat-info px-2 position-relative w-100">
                             <span class="d-block"> {{ contacts[currentChat].name }} </span>
-                            <span class="text-muted ms_small_text">Ultimo messaggio il {{ lastMessageTime(currentChat) }} </span>
+                            <span v-if="contacts[currentChat].messages.length > 0" class="text-muted ms_small_text">Ultimo messaggio il {{ lastMessageTime(currentChat) }} </span>
+                            <span v-else=""class="text-muted ms_small_text">NON CI SONO MESSAGGI</span>
                         </div>
                    </div>
                    <div class="d-flex align-items-center">
